@@ -28,4 +28,11 @@ public class Node
     {
         this.nodes.add(n);
     }
+
+    public void printChildren()
+    {
+        String s = "";
+        for (Node c : this.nodes) s += c.getId() + ",";
+        System.out.println(s.substring(0, s.length()-1));
+    }
 }

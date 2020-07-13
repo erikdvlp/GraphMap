@@ -17,6 +17,11 @@ public class Graph
         return this.nodes;
     }
 
+    public Node getNode(int id)
+    {
+        return this.nodes.get(id-1);
+    }
+
     public void addNode(Node n)
     {
         this.nodes.add(n);
@@ -24,15 +29,17 @@ public class Graph
 
     public void generateNodes(int amt)
     {
-        for (int i = 0; i < amt; i++)
+        for (int i = 1; i <= amt; i++)
         {
             Node n = new Node(i);
             this.addNode(n);
         }
     }
 
-    public void connectNodes(int a, int b)
+    public void connectNodes(int idA, int idB)
     {
-        //implement
+        Node parent = this.getNode(idA);
+        Node child = this.getNode(idB);
+        parent.addNode(child);
     }
 }

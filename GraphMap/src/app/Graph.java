@@ -42,4 +42,11 @@ public class Graph
         Node child = this.getNode(idB);
         parent.addNode(child);
     }
+
+    public List<Integer> findPath(int idA, int idB)
+    {
+        Node start = this.getNode(idA);
+        //implement
+        return new ArrayList<Integer>();
+    }
 }

@@ -27,22 +27,21 @@ public class App
     {
         Node start = g.getNode(idA);
         Node end = g.getNode(idB);
-        boolean[] visited = new boolean[g.getNodes().size()];
         List<Integer> path = new ArrayList();
-        
-        path = bfs(g, start, end, visited);
-
-        output(path);
+        path = bfs(g, start, end);
+        output(path, start, end);
     }
 
-    public static void output(List<Integer> path)
+    public static void output(List<Integer> path, Node start, Node end)
     {
-        System.out.println(path);
+        String output = String.format("Path from %d to %d: %s", start.getId(), end.getId(), path);
+        System.out.println(output);
     }
 
     //modified breadth-first search
-    public static List<Integer> bfs(Graph g, Node start, Node end, boolean[] visited) 
-    { 
+    public static List<Integer> bfs(Graph g, Node start, Node end) 
+    {
+        boolean[] visited = new boolean[g.getNodes().size()];
         Queue<Node> q = new LinkedList();
         int[] map = new int[g.getNodes().size()];
         for (int i = 0; i < map.length; i++) map[i] = -1;
